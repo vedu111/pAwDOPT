@@ -9,8 +9,8 @@ connectDB();
 
 app.use(bodyParser.json());
 
-// http://localhost:5000/signup
-app.use(require('./routes/auth'));
+// http://localhost:5000/api/auth/login /signup
+app.use('/api/auth', require('./routes/auth'));
 
 const PORT = process.env.PORT || 5000;
 
