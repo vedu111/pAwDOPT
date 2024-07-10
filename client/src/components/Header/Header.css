@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Moo+Lah+Lah&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Moo+Lah+Lah&family=Righteous&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    padding: 0;
+    margin: 0;
+}
+.header{
+    background-color: #a3f79d;
+    height: 90vh;
+    padding: 5px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 10px 20px;
+}
+.navbar .navbar-left{
+    display: flex;
+}
+.navbar ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+a{
+    text-decoration: none;
+    color: #024023;
+    margin: 10px;
+}
+.logo-text{
+    margin-left: 10px;
+    font-family: "Righteous", sans-serif;
+}
+.clr-dgrn{
+    color: #024023;
+}
+.bg-dgrn{
+    background-color: #024023;
+}
+.clr-lgrn{
+    color: #a3f79d;
+}
+.clr-mgrn{
+    color: #50e446;
+}
+.bg-lgrn{
+    background-color: #a3f79d;
+}
+.main h1{
+    font-family: "Moo Lah Lah", sans-serif;
+    font-size: 10rem;
+    margin-top: 4rem;
+    margin-right: 4rem;
+}
+.main h2{
+    font-family: "Moo Lah Lah", sans-serif;
+}
+.main button{
+    size: 10rem;
+}
+.nuni{
+    font-family: "Nunito",sans-serif;
+}
