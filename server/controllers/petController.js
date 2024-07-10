@@ -1,7 +1,7 @@
 const Pet = require('../models/Pet');
 
 exports.createPet = async (req, res) => {
-  const { type, name, breed, age, location, photos, shelter } = req.body;
+  const { type, name, breed, age, photos, shelter } = req.body;
 
   try {
     const newPet = new Pet({
@@ -9,7 +9,6 @@ exports.createPet = async (req, res) => {
       name,
       breed,
       age,
-      location,
       photos,
       shelter,
     });
@@ -48,9 +47,9 @@ exports.getFilteredPets = async (req, res) => {
 
 
 exports.updatePet = async (req, res) => {
-  const { type, name, breed, age, location, photos, shelter } = req.body;
+  const { type, name, breed, age, photos, shelter } = req.body;
 
-  const petFields = { type, name, breed, age, location, photos, shelter };
+  const petFields = { type, name, breed, age, photos, shelter };
 
   try {
     let pet = await Pet.findById(req.params.id);
