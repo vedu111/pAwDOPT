@@ -1,0 +1,44 @@
+.intro{
+    text-align: left;
+    margin: 1.75rem 10rem auto ;
+}
+.text-base{
+    margin-top: 1rem;
+    font-weight: 500;
+}
+.clr-grey{
+    color: #4b4b52;
+}
+.mh-27{
+    max-height: 27rem;
+    overflow: scroll;
+}
+.scrollable-content::-webkit-scrollbar {
+    width: 12px; 
+  }
+  
+  .scrollable-content::-webkit-scrollbar-track {
+    background: #033c2c; 
+  }
+  
+  .scrollable-content::-webkit-scrollbar-thumb {
+    background-color: #8fe286; 
+    border-radius: 10px; 
+    border: 2px solid #024023; 
+  }
+  
+  .scrollable-content::-webkit-scrollbar-thumb:hover {
+    background-color: #72c369; 
+  }
+  
+  .scrollable-content {
+    scrollbar-width: thin; 
+    scrollbar-color: #8fe286 #033c2c; 
+  }
+  
+  
+  .scrollable-content { 
+    overflow-y: auto; 
+    padding-right: 10px; 
+  }
+  
