@@ -1,7 +1,7 @@
   import React from "react";
   import "./Header.css";
   import logoImage from '../../assets/logo.png'
-
+  import hero from '../../assets/hero.png'
   function Header() {
     return (
       <>
@@ -36,10 +36,10 @@
             <div className="">
               <h1 className=" clr-dgrn font-medium">Adopt,</h1>
               <h2 className="text-7xl clr-dgrn">Don't Shop.</h2>
-              <button className="px-3 py-1 bg-black rounded-3xl text-md w-28 mt-8 bg-gray-800 clr-lgrn text-lg w-40 nuni" >Adopt now</button>
+              <button className="px-3 py-1 bg-black rounded-3xl text-md w-28 mt-8 bg-gray-800 clr-lgrn text-lg w-40 nuni mb-24" >Adopt now</button>
             </div>
             <div>
-              <img src="" alt="dog" />
+              <img className="hero" src={hero} alt="dog" />
             </div>
           </div>
         </div>

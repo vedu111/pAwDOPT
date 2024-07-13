@@ -1,10 +1,108 @@
 .testi{
     padding: 5% 10%;
 }
-.testi p{
+.para{
     margin: 3rem;
 }
 .clr-brown{
     color: 
     rgb(127, 55, 21);
+}
+
+.carousel-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Carousel slide */
+.carousel .slide {
+    background: #024023;
+    padding: 2rem;
+}
+
+/* Carousel image */
+.carousel .slide img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonial text container */
+.testimonial-text {
+    background-color: #024023;
+    padding: 2rem;
+    border-radius: 0 0 12px 12px;
+    text-align: center;
+}
+
+/* Testimonial name */
+.testimonial-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #52d344; /* Using your clr-brown */
+    margin-bottom: 0.5rem;
+}
+
+/* Testimonial content */
+.testimonial-content {
+    font-size: 1.1rem;
+    color: #badfb6; /* Using your clr-grey */
+    line-height: 1.6;
+    font-style: italic;
+    margin: 1rem;
+}
+
+/* Carousel controls */
+.carousel .control-arrow {
+    background-color: rgba(2, 64, 35, 0.6) !important; /* Semi-transparent bg-dgrn */
+    opacity: 1 !important;
+    transition: all 0.3s ease;
+}
+
+.carousel .control-arrow:hover {
+    background-color: rgba(2, 64, 35, 0.8) !important;
+}
+
+.carousel .control-prev.control-arrow:before {
+    border-right-color: #a3f79d; /* Using your lgrn color */
+}
+
+.carousel .control-next.control-arrow:before {
+    border-left-color: #a3f79d; /* Using your lgrn color */
+}
+
+/* Carousel indicators */
+.carousel .control-dots .dot {
+    background: #badfb6 !important; /* Using your bg-dgrn color */
+    opacity: 0.4;
+}
+
+.carousel .control-dots .dot.selected {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .testi {
+        padding: 5% 5%;
+    }
+
+    .testi h2 {
+        font-size: 2.5rem;
+    }
+
+    .testi .intro {
+        font-size: 1rem;
+    }
+
+    .testimonial-name {
+        font-size: 1.3rem;
+    }
+
+    .testimonial-content {
+        font-size: 1rem;
+    }
 }

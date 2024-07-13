@@ -22,9 +22,7 @@
     font-size: 5rem;
     font-weight: 700;
 }
-.about img{
-    width: 20rem;
-}
+
 p{
     margin-top: 2rem;
     color: black;
@@ -51,4 +49,7 @@ p{
     font-size: 3rem;
     font-weight: 600;
     text-align: center;
+}
+.shelter img{
+    width: 96rem;
 }

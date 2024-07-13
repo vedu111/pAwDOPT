@@ -9,6 +9,18 @@
 .clr-grey{
     color: #4b4b52;
 }
+.clr-lgrn{
+    color: #a3f79d;
+}
+.bg-dgrn{
+    background-color: #024023;
+}
+.bg-lgrn{
+    background-color: #a3f79d;
+}
+.clr-mgrn{
+    color: #50e446;
+}
 .mh-27{
     max-height: 27rem;
     overflow: scroll;
@@ -41,4 +53,16 @@
     overflow-y: auto; 
     padding-right: 10px; 
   }
-  
+  @media (max-width: 768px) {
+    .benefits {
+        padding: 2rem 1rem;
+    }
+
+    .intro {
+        margin: 1.5rem 1rem;
+    }
+
+    .card {
+        margin-bottom: 1.5rem;
+    }
+}

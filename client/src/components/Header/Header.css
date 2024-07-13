@@ -14,12 +14,16 @@
 
 .header {
   background-color: var(--color-light-green);
-  min-height: 90vh;
   padding: 20px;
   position: relative;
   overflow: hidden;
 }
-
+.hero{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50rem;
+}
 .header::before {
   content: '';
   position: absolute;

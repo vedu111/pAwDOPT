@@ -44,9 +44,9 @@ function Carousell() {
           </div>
         ))}
       </Carousel>
-      <div className="text-center mt-4">
-        <h1 className='nuni text-center text-2xl font-bold clr-brown'>{slides[currentSlide].name}</h1>
-        <p className="text-lg font-normal">{slides[currentSlide].text}</p>
+      <div className="testimonial-text">
+        <h1 className='testimonial-name'>{slides[currentSlide].name}</h1>
+        <p className="testimonial-content">{slides[currentSlide].text}</p>
       </div>
     </div>
   );
