@@ -2,36 +2,12 @@
   import "./Header.css";
   import logoImage from '../../assets/logo.png'
   import hero from '../../assets/hero.png'
+import Navbar from "../Navbar/Navbar";
   function Header() {
     return (
       <>
         <div className="header border">
-          <div className="navbar bg-dgrn rounded">
-            <div className="navbar-left">
-            <img src={logoImage} alt="Logo" className="logo" />
-              <span className="logo-text clr-lgrn text-lg">pAwDOPT</span>
-            </div>
-            <div className="navbar-center">
-              <ul className="nav-links">
-                <li>
-                  <a className="font-medium text-md clr-lgrn nuni" href="#">Home</a>
-                </li>
-                <li>
-                  <a className="font-medium text-md clr-lgrn nuni" href="#">About</a>
-                </li>
-                <li>
-                  <a className="font-medium text-md clr-lgrn nuni" href="#">Support us</a>
-                </li>
-                <li>
-                  <a className="font-medium text-md clr-lgrn nuni" href="#">Adopt</a>
-                </li>
-              </ul>
-            </div>
-            <div className="navbar-right">
-              <button className="clr-lgrn mr-2.5 font-bold text-md w-28 nuni">Sign Up</button>
-              <button className="px-3 py-1 rounded text-md w-28 bg-lgrn clr-dgrn font-bold nuni">Log In</button>
-            </div>
-          </div>
+          <Navbar/>
           <div className="main flex justify-around align-centre">
             <div className="">
               <h1 className=" clr-dgrn font-medium">Adopt,</h1>

@@ -22,7 +22,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 50rem;
+  width: 43rem;
 }
 .header::before {
   content: '';

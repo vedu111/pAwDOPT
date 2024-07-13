@@ -1,6 +1,7 @@
 import React from 'react'
 import "./Help.css"
-function Card({heading,description}) {
+import { Link } from 'react-router-dom'
+function Card({heading,description,path}) {
     
     return (
     <>
@@ -10,7 +11,7 @@ function Card({heading,description}) {
     <div class="content">
       {description}
     </div>
-    <button class="btn">Learn more</button>
+    <Link to={path}><button class="btn">Learn more</button></Link>
     <div class="bar">
       <div class="emptybar"></div>
       <div class="filledbar"></div>

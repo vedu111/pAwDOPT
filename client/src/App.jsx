@@ -1,22 +1,29 @@
 import React from 'react';
-import Header from './components/Header/Header';
-import About from './components/About/About';
-import Process from './components/Process/Process';
-import Why from './components/Why/Why';
-import Testimonials from './components/Testimonials/Testimonials';
-import Help from './components/Help/Help';
-import Footer from './components/Footer/Footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import AboutS from './pages/AboutS/AboutS';
+import Volunteer from './pages/Volunteer/Volunteer';
+import Donate from './pages/Donate/Donate';
+import Signup from './components/authentication/signup/Signup';
+import Login from './components/authentication/Login';
+import ProcessS from './pages/ProcessS/ProcessS';
+
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <About/>
-      <Why/>
-      <Process/>
-      <Testimonials/>
-      <Help/>
-      <Footer/>
-    </div>
+    <Router>
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<AboutS />} />
+        <Route path="/volunteer" element={<Volunteer />} />
+        <Route path="/donate" element={<Donate />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/donate" element={<Donate />} />
+        <Route path="/volunteer" element={<Volunteer />} />
+        <Route path="/process" element={<ProcessS />} />
+      </Routes>
+    </Router>
   );
 }
 
