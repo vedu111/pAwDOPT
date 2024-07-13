@@ -1,7 +1,7 @@
 const Pet = require('../models/Pet');
 
 exports.createPet = async (req, res) => {
-  const { type, name, breed, age, photos, shelter } = req.body;
+  const { type, name, breed, age, photos } = req.body;
 
   try {
     const newPet = new Pet({
@@ -10,7 +10,6 @@ exports.createPet = async (req, res) => {
       breed,
       age,
       photos,
-      shelter,
     });
 
     const pet = await newPet.save();
@@ -24,7 +23,7 @@ exports.createPet = async (req, res) => {
 
 exports.getPets = async (req, res) => {
   try {
-    const pets = await Pet.find().populate('shelter', ['name', 'email']);
+    const pets = await Pet.find({});
     res.json(pets);
   } catch (err) {
     console.error(err.message);
@@ -47,9 +46,9 @@ exports.getFilteredPets = async (req, res) => {
 
 
 exports.updatePet = async (req, res) => {
-  const { type, name, breed, age, photos, shelter } = req.body;
+  const { type, name, breed, age, photos } = req.body;
 
-  const petFields = { type, name, breed, age, photos, shelter };
+  const petFields = { type, name, breed, age, photos };
 
   try {
     let pet = await Pet.findById(req.params.id);

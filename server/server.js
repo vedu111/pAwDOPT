@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/pets', require('./routes/pet'));
+app.use('/api/adoptedPets', require('./routes/adoptedPets'));
 
 const PORT = process.env.PORT || 5000;
 

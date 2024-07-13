@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const PetSchema = new mongoose.Schema({
+const AdoptedPetSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
@@ -19,8 +19,12 @@ const PetSchema = new mongoose.Schema({
     required: true,
   },
   photos: {
-    type: [String], 
+    type: [String],
+  },
+  adoptionDate: {
+    type: Date,
+    default: Date.now,
   },
 });
 
-module.exports = mongoose.model('Pet', PetSchema);
+module.exports = mongoose.model('AdoptedPet', AdoptedPetSchema);
