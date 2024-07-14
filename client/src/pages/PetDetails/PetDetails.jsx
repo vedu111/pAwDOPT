@@ -52,10 +52,7 @@ function PetDetails() {
               <strong>Age</strong>
               <p>{pet.age} years</p>
             </div>
-            <div className="info-item">
-              <strong>Date Added</strong>
-              <p>{new Date(pet.dateAdded).toLocaleDateString()}</p>
-            </div>
+            
           </div>
           <div className="pet-description">
             <h2>Health Information</h2>

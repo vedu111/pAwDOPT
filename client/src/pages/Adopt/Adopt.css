@@ -101,8 +101,8 @@
   .adopt-button {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
-    background-color: var(--color-mid-green);
-    color: var(--color-dark-green);
+    background-color: var(--color-dark-green);
+    color: var(--color-light-green);
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
@@ -112,8 +112,8 @@
   }
   
   .adopt-button:hover {
-    background-color: var(--color-dark-green);
-    color: var(--color-light-green);
+    background-color: var(--color-mid-green);
+    color: var(--color-dark-green);
   }
   
   .pet-image {
