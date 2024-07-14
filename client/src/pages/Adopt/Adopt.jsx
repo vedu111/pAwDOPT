@@ -1,25 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import './Adopt.css';
-
-// Dummy data for pets
-const petsData = [
-  { id: 1, name: 'Buddy', type: 'Dog', breed: 'Golden Retriever', age: 3, description: 'Friendly and energetic golden retriever looking for an active family.', image: 'path_to_buddy_image.jpg' },
-  { id: 2, name: 'Max', type: 'Dog', breed: 'German Shepherd', age: 2, description: 'Loyal and intelligent German Shepherd, great with kids.', image: 'path_to_max_image.jpg' },
-  { id: 3, name: 'Whiskers', type: 'Cat', breed: 'Siamese', age: 2, description: 'Gentle Siamese cat who loves to cuddle and play.', image: 'path_to_whiskers_image.jpg' },
-  { id: 4, name: 'Luna', type: 'Cat', breed: 'Maine Coon', age: 4, description: 'Majestic Maine Coon with a friendly personality.', image: 'path_to_luna_image.jpg' },
-  // Add more pets as needed
-];
+export const petsData = [
+    { id: 1, name: 'Buddy', type: 'Dog', breed: 'Golden Retriever', age: 3, description: 'Friendly and energetic golden retriever looking for an active family.', image: 'path_to_buddy_image.jpg' },
+    { id: 2, name: 'Max', type: 'Dog', breed: 'German Shepherd', age: 2, description: 'Loyal and intelligent German Shepherd, great with kids.', image: 'path_to_max_image.jpg' },
+    { id: 3, name: 'Whiskers', type: 'Cat', breed: 'Siamese', age: 2, description: 'Gentle Siamese cat who loves to cuddle and play.', image: 'path_to_whiskers_image.jpg' },
+    { id: 4, name: 'Luna', type: 'Cat', breed: 'Maine Coon', age: 4, description: 'Majestic Maine Coon with a friendly personality.', image: 'path_to_luna_image.jpg' },
+  ];
+  
 
 function Adopt() {
   const [selectedType, setSelectedType] = useState('All');
   const [selectedBreed, setSelectedBreed] = useState('All');
   const [availableBreeds, setAvailableBreeds] = useState([]);
-
-  // Get unique animal types
   const animalTypes = ['All', ...new Set(petsData.map(pet => pet.type))];
 
-  // Update available breeds when animal type changes
   useEffect(() => {
     if (selectedType === 'All') {
       setAvailableBreeds(['All']);
@@ -32,7 +28,6 @@ function Adopt() {
     setSelectedBreed('All');
   }, [selectedType]);
 
-  // Filter pets based on selected type and breed
   const filteredPets = petsData.filter(pet => 
     (selectedType === 'All' || pet.type === selectedType) &&
     (selectedBreed === 'All' || pet.breed === selectedBreed)
@@ -76,7 +71,14 @@ function Adopt() {
 
         <div className="pet-list">
           {filteredPets.map(pet => (
-            <div key={pet.id} className="pet-card">
+            <Link 
+              key={pet.id} 
+              to={{
+                pathname: `/adopt/${pet.id}`,
+                state: { pet }
+              }} 
+              className="pet-card"
+            >
               <div className="pet-info">
                 <h2 className="pet-name">{pet.name}</h2>
                 <p className="pet-breed">{pet.breed}</p>
@@ -87,7 +89,7 @@ function Adopt() {
               <div className="pet-image">
                 <img src={pet.image} alt={pet.name} />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
