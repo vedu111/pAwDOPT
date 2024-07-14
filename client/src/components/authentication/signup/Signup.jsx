@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Signup.css';
 
 function Signup() {
@@ -31,9 +32,7 @@ function Signup() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-        }),
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
@@ -42,177 +41,135 @@ function Signup() {
         window.location.href = '/login';
       } else {
         console.error('Signup failed');
+        alert('Signup failed. Please try again.');
       }
     } catch (error) {
       console.error('Error signing up:', error);
+      alert('An error occurred. Please try again later.');
     } finally {
       setSubmitting(false);
     }
   };
 
   return (
-    <section className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0 overflow-sc">
-        <div className="w-full rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 overflow-sc">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-              Create an account
-            </h1>
-            <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Your name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="John Doe"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Your email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="name@company.com"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="address" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Your address
-                </label>
-                <input
-                  type="text"
-                  name="address"
-                  id="address"
-                  value={formData.address}
-                  onChange={handleInputChange}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="123 Main St, City, Country"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="age" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Your age
-                </label>
-                <input
-                  type="number"
-                  name="age"
-                  id="age"
-                  value={formData.age}
-                  onChange={handleInputChange}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="25"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="gender" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Gender
-                </label>
-                <select
-                  name="gender"
-                  id="gender"
-                  value={formData.gender}
-                  onChange={handleInputChange}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
-                >
-                  <option value="">Select gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="role" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Role
-                </label>
-                <select
-                  name="role"
-                  id="role"
-                  value={formData.role}
-                  onChange={handleInputChange}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
-                >
-                  <option value="">Select role</option>
-                  <option value="adopter">Adopter</option>
-                  <option value="ngo_worker">Ngo_Worker</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-                  placeholder="••••••••"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="number" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Your number
-                </label>
-                <input
-                  type="text"
-                  name="number"
-                  id="number"
-                  value={formData.number}
-                  onChange={handleInputChange}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="1234567890"
-                  required
-                />
-              </div>
-              <div className="flex items-start">
-                <div className="flex items-center h-5">
-                  <input
-                    id="terms"
-                    aria-describedby="terms"
-                    type="checkbox"
-                    className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                    required
-                  />
-                </div>
-                <div className="ml-3 text-sm">
-                  <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">
-                    I accept the <a className="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">
-                      Terms and Conditions
-                    </a>
-                  </label>
-                </div>
-              </div>
-              <button
-                type="submit"
-                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-4 dark:focus:ring-primary-500 rounded-lg py-2.5 mt-4"
-                disabled={submitting}
-              >
-                {submitting ? 'Submitting...' : 'Create an Account'}
-              </button>
-            </form>
+    <div className="signup-page">
+      <div className="signup-container">
+        <div className="signup-header">
+          <h1>Create an Account</h1>
+        </div>
+        <form onSubmit={handleSubmit} className="signup-form">
+          <div className="form-group">
+            <label htmlFor="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+            />
           </div>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="number">Phone Number</label>
+            <input
+              type="tel"
+              id="number"
+              name="number"
+              value={formData.number}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="address">Address</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={formData.address}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-row">
+            <div className="form-group half-width">
+              <label htmlFor="age">Age</label>
+              <input
+                type="number"
+                id="age"
+                name="age"
+                value={formData.age}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className="form-group half-width">
+              <label htmlFor="gender">Gender</label>
+              <select
+                id="gender"
+                name="gender"
+                value={formData.gender}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="">Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div className="form-group">
+            <label htmlFor="role">Role</label>
+            <select
+              id="role"
+              name="role"
+              value={formData.role}
+              onChange={handleInputChange}
+              required
+            >
+              <option value="">Select role</option>
+              <option value="adopter">Adopter</option>
+              <option value="ngo_worker">NGO Worker</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              required
+            />
+          </div>
+          <div className="form-group checkbox">
+            <input type="checkbox" id="terms" required />
+            <label htmlFor="terms">
+              I accept the <a href="#">Terms and Conditions</a>
+            </label>
+          </div>
+          <button type="submit" className="signup-button" disabled={submitting}>
+            {submitting ? 'Creating Account...' : 'Create Account'}
+          </button>
+        </form>
+        <div className="signup-footer">
+          <p>Already have an account? <Link to="/login">Log in</Link></p>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
