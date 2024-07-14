@@ -32,22 +32,45 @@ function PetDetails() {
     <div className="pet-details-page">
       <Navbar />
       <div className="pet-details-content">
-        <h1 className="page-title">{pet.name}'s Details</h1>
-        <div className="pet-info">
-          <p><strong>Type:</strong> {pet.type}</p>
-          <p><strong>Breed:</strong> {pet.breed}</p>
-          <p><strong>Age:</strong> {pet.age} years</p>
-          <p><strong>Health Information:</strong> {pet.healthInfo}</p>
-          <p><strong>Compatibility:</strong> {pet.compatibility}</p>
-          <p><strong>Date Added:</strong> {new Date(pet.dateAdded).toLocaleDateString()}</p>
-          {/* Display photos if available */}
-          <div className="pet-photos">
-            {pet.photos && pet.photos.length > 0 && (
-              pet.photos.map((photo, index) => (
-                <img key={index} src={photo} alt={`Photo ${index + 1}`} />
-              ))
-            )}
+        <div className="pet-header">
+          <img src={pet.photos[0]} alt={pet.name} />
+          <div className="pet-name-overlay">
+            <h1 className="pet-name-large">{pet.name}</h1>
           </div>
+        </div>
+        <div className="pet-info">
+          <div className="info-grid">
+            <div className="info-item">
+              <strong>Type</strong>
+              <p>{pet.type}</p>
+            </div>
+            <div className="info-item">
+              <strong>Breed</strong>
+              <p>{pet.breed}</p>
+            </div>
+            <div className="info-item">
+              <strong>Age</strong>
+              <p>{pet.age} years</p>
+            </div>
+            <div className="info-item">
+              <strong>Date Added</strong>
+              <p>{new Date(pet.dateAdded).toLocaleDateString()}</p>
+            </div>
+          </div>
+          <div className="pet-description">
+            <h2>Health Information</h2>
+            <p>{pet.healthInfo}</p>
+            <h2>Compatibility</h2>
+            <p>{pet.compatibility}</p>
+          </div>
+          <div className="pet-photos">
+            {pet.photos && pet.photos.length > 1 && 
+              pet.photos.slice(1).map((photo, index) => (
+                <img key={index} src={photo} alt={`${pet.name} - Photo ${index + 2}`} />
+              ))
+            }
+          </div>
+          <a href="#" className="adopt-button-large">Adopt {pet.name}</a>
         </div>
       </div>
     </div>
