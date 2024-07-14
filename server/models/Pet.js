@@ -21,6 +21,18 @@ const PetSchema = new mongoose.Schema({
   photos: {
     type: [String], 
   },
+  healthInfo: {
+    type: String,
+    required: true,
+  },
+  compatibility: {
+    type: String,
+    required: true,
+  },
+  dateAdded: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model('Pet', PetSchema);

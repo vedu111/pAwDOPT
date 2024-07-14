@@ -2,38 +2,47 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import './Adopt.css';
 
-// Dummy data for pets
-const petsData = [
-  { id: 1, name: 'Buddy', type: 'Dog', breed: 'Golden Retriever', age: 3, description: 'Friendly and energetic golden retriever looking for an active family.', image: 'path_to_buddy_image.jpg' },
-  { id: 2, name: 'Max', type: 'Dog', breed: 'German Shepherd', age: 2, description: 'Loyal and intelligent German Shepherd, great with kids.', image: 'path_to_max_image.jpg' },
-  { id: 3, name: 'Whiskers', type: 'Cat', breed: 'Siamese', age: 2, description: 'Gentle Siamese cat who loves to cuddle and play.', image: 'path_to_whiskers_image.jpg' },
-  { id: 4, name: 'Luna', type: 'Cat', breed: 'Maine Coon', age: 4, description: 'Majestic Maine Coon with a friendly personality.', image: 'path_to_luna_image.jpg' },
-  // Add more pets as needed
-];
-
 function Adopt() {
+  const [pets, setPets] = useState([]);
   const [selectedType, setSelectedType] = useState('All');
   const [selectedBreed, setSelectedBreed] = useState('All');
   const [availableBreeds, setAvailableBreeds] = useState([]);
 
+  useEffect(() => {
+    fetchPets();
+  }, []);
+
+  const fetchPets = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/pets/');
+      if (!response.ok) {
+        throw new Error('Failed to fetch pets');
+      }
+      const petsData = await response.json();
+      setPets(petsData);
+    } catch (error) {
+      console.error('Error fetching pets:', error);
+    }
+  };
+
   // Get unique animal types
-  const animalTypes = ['All', ...new Set(petsData.map(pet => pet.type))];
+  const animalTypes = ['All', ...new Set(pets.map(pet => pet.type))];
 
   // Update available breeds when animal type changes
   useEffect(() => {
     if (selectedType === 'All') {
       setAvailableBreeds(['All']);
     } else {
-      const breeds = ['All', ...new Set(petsData
+      const breeds = ['All', ...new Set(pets
         .filter(pet => pet.type === selectedType)
         .map(pet => pet.breed))];
       setAvailableBreeds(breeds);
     }
     setSelectedBreed('All');
-  }, [selectedType]);
+  }, [selectedType, pets]);
 
   // Filter pets based on selected type and breed
-  const filteredPets = petsData.filter(pet => 
+  const filteredPets = pets.filter(pet =>
     (selectedType === 'All' || pet.type === selectedType) &&
     (selectedBreed === 'All' || pet.breed === selectedBreed)
   );
@@ -76,16 +85,18 @@ function Adopt() {
 
         <div className="pet-list">
           {filteredPets.map(pet => (
-            <div key={pet.id} className="pet-card">
+            <div key={pet._id} className="pet-card">
               <div className="pet-info">
                 <h2 className="pet-name">{pet.name}</h2>
                 <p className="pet-breed">{pet.breed}</p>
                 <p className="pet-age">Age: {pet.age} years</p>
-                <p className="pet-description">{pet.description}</p>
+                {/* Add more pet details as needed */}
                 <button className="adopt-button">Learn More</button>
               </div>
               <div className="pet-image">
-                <img src={pet.image} alt={pet.name} />
+                {pet.photos && pet.photos.length > 0 && (
+                  <img src={pet.photos[0]} alt={pet.name} />
+                )}
               </div>
             </div>
           ))}

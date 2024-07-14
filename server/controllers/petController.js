@@ -1,7 +1,7 @@
 const Pet = require('../models/Pet');
 
 exports.createPet = async (req, res) => {
-  const { type, name, breed, age, photos } = req.body;
+  const { type, name, breed, age, photos, healthInfo, compatibility } = req.body;
 
   try {
     const newPet = new Pet({
@@ -10,6 +10,8 @@ exports.createPet = async (req, res) => {
       breed,
       age,
       photos,
+      healthInfo,
+      compatibility,
     });
 
     const pet = await newPet.save();
@@ -20,7 +22,6 @@ exports.createPet = async (req, res) => {
   }
 };
 
-
 exports.getPets = async (req, res) => {
   try {
     const pets = await Pet.find({});
@@ -30,7 +31,6 @@ exports.getPets = async (req, res) => {
     res.status(500).send('Server error');
   }
 };
-
 
 exports.getFilteredPets = async (req, res) => {
   const filters = req.body;
@@ -44,11 +44,10 @@ exports.getFilteredPets = async (req, res) => {
   }
 };
 
-
 exports.updatePet = async (req, res) => {
-  const { type, name, breed, age, photos } = req.body;
+  const { type, name, breed, age, photos, healthInfo, compatibility } = req.body;
 
-  const petFields = { type, name, breed, age, photos };
+  const petFields = { type, name, breed, age, photos, healthInfo, compatibility };
 
   try {
     let pet = await Pet.findById(req.params.id);
@@ -69,7 +68,6 @@ exports.updatePet = async (req, res) => {
     res.status(500).send('Server error');
   }
 };
-
 
 exports.deletePet = async (req, res) => {
   try {
