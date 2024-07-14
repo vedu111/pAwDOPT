@@ -7,6 +7,7 @@ import Donate from './pages/Donate/Donate';
 import Signup from './components/authentication/signup/Signup';
 import Login from './components/authentication/Login';
 import ProcessS from './pages/ProcessS/ProcessS';
+import Adopt from './pages/Adopt/Adopt';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/donate" element={<Donate />} />
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/process" element={<ProcessS />} />
+        <Route path="/adopt" element={<Adopt />} />
       </Routes>
     </Router>
   );
