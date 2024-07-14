@@ -4,7 +4,7 @@ import Home from './pages/Home/Home';
 import AboutS from './pages/AboutS/AboutS';
 import Volunteer from './pages/Volunteer/Volunteer';
 import Donate from './pages/Donate/Donate';
-import Signup from './components/authentication/Signup/Signup';
+import Signup from './components/authentication/signup/Signup';
 import Login from './components/authentication/Login/Login';
 import ProcessS from './pages/ProcessS/ProcessS';
 import Adopt from './pages/Adopt/Adopt';

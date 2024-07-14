@@ -8,7 +8,7 @@ router.post('/', auth, createPet);
 
 router.get('/', getPets);
 
-router.get('/filter', getFilteredPets);
+router.get('/:id', getPetById);
 
 router.put('/:id', auth, updatePet);
 

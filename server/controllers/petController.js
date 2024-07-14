@@ -32,14 +32,20 @@ exports.getPets = async (req, res) => {
   }
 };
 
-exports.getFilteredPets = async (req, res) => {
-  const filters = req.body;
-
+exports.getPetById = async (req, res) => {
   try {
-    const pets = await Pet.find(filters).populate('shelter', ['name', 'email']);
-    res.json(pets);
+    const pet = await Pet.findById(req.params.id);
+
+    if (!pet) {
+      return res.status(404).json({ msg: 'Pet not found' });
+    }
+
+    res.json(pet);
   } catch (err) {
     console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Pet not found' });
+    }
     res.status(500).send('Server error');
   }
 };
