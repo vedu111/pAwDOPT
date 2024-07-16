@@ -17,7 +17,6 @@ app.use(cors(corsOptions));
 
 connectDB();
 
-app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/api/auth', require('./routes/auth'));
