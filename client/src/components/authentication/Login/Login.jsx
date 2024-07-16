@@ -19,7 +19,7 @@ function Login() {
     e.preventDefault();
     setSubmitting(true);
 
-    const url = 'http://localhost:5000/api/auth/login';
+    const url = 'https://pawdopt-server.vercel.app/api/auth/login';
 
     try {
       const response = await fetch(url, {
