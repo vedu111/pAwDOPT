@@ -8,6 +8,8 @@ const app = express();
 
 const corsOptions = {
   origin: 'https://pawdopt-frontend.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
   optionsSuccessStatus: 200
 };
 
