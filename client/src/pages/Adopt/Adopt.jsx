@@ -16,7 +16,7 @@ function Adopt() {
 
   const fetchPets = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/pets/');
+      const response = await fetch('https://pawdopt-server.vercel.app/api/pets/');
       if (!response.ok) {
         throw new Error('Failed to fetch pets');
       }
