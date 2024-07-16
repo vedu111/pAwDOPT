@@ -6,14 +6,9 @@ require('dotenv').config();
 
 const app = express();
 
-const corsOptions = {
-  origin: 'https://pawdopt-frontend.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-  optionsSuccessStatus: 200
-};
-
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: 'https://pawdopt-frontend.vercel.app'
+}));
 
 connectDB();
 
