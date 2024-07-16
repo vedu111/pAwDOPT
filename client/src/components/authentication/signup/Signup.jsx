@@ -24,7 +24,7 @@ function Signup() {
     e.preventDefault();
     setSubmitting(true);
 
-    const url = 'http://localhost:5000/api/auth/signup';
+    const url = 'https://pawdopt-server.vercel.app/api/auth/signup';
 
     try {
       const response = await fetch(url, {
